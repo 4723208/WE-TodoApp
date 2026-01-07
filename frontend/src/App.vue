@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import AddTodo from './components/AddTodo.vue';
+
 import { ListFormat } from 'typescript';
 import { ref, computed } from 'vue';
 const name = ref('Vue 3 with TypeScript');
@@ -13,6 +15,11 @@ const todos = ref<Todo[]>([
 
 const falseTodos = computed(() => todos.value.filter((i) => i.completed === false));
 const falseTodosValue = computed(() => falseTodos.value.length);
+
+
+
+
+
 </script>
 
 <template>
@@ -31,5 +38,11 @@ const falseTodosValue = computed(() => falseTodos.value.length);
         </span>
       </li>
     </ul>
+
+    <AddTodo v-model:todos="todos" />
+
   </div>
+
+
+
 </template>
